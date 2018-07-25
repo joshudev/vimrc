@@ -36,6 +36,11 @@ set hidden
 
 autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
+" Auto close nerd tree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+
 set number
 set mouse=a
 " format the entire file

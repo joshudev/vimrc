@@ -17,6 +17,31 @@ execute pathogen#infect('~/.vim/bundle/{}')
 "set directory=~/.vim/swap/
 "set undodir=~/.vim/undo/
 
+
+"autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
+" Auto close nerd tree
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Set cwd for nerdtree
+"autocmd BufEnter * lcd %:p:h
+
+set number
+set mouse=a
+" format the entire file
+nnoremap <leader>fef :normal! gg=G``<CR>
+
+
+set nocompatible      " We're running Vim, not Vi!
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+
+map <leader>r :NERDTreeFind<cr>
+
 set noundofile
 set noswapfile
 set nobackup
@@ -32,25 +57,5 @@ set softtabstop=2   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
 
+set smarttab
 set hidden
-
-autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-" Auto close nerd tree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-
-
-set number
-set mouse=a
-" format the entire file
-nnoremap <leader>fef :normal! gg=G``<CR>
-
-
-set nocompatible      " We're running Vim, not Vi!
-syntax on             " Enable syntax highlighting
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
-
-map <leader>r :NERDTreeFind<cr>
